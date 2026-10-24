@@ -87,8 +87,9 @@
         </div>
         
         <div class="row g-4">
-            <div class="col-md-6 col-lg-4" th:each="product : ${products}">
-                <div class="product-card animate__animated animate__fadeInUp" style="transition-delay: calc(0.1s * ${#index} )">
+            <div class="col-md-6 col-lg-4" th:each="product, iterStat : ${products}">
+                <div class="product-card animate__animated animate__fadeInUp"
+                     th:style="'transition-delay: ' + (${iterStat.index} * 0.1) + 's'">
                     <div class="card-body p-4">
                         <h5 class="card-title" th:text="${product.name}"></h5>
                         <p class="card-text small text-muted" th:text="${product.description}"></p>
